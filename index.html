@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <style>
+        	#cv{
+        		width:800px;
+        		height:600px;
+        		position:relative;
+
+        	}
+			button{
+				width:200px;
+				height:80px;
+				background-color:rgba(0,0,0,.5);
+				transform:translate(-50%, -50%);
+				position:absolute;
+				left:50%;
+				top:50%;
+				border:none;
+				font-size:30px;
+				color:#fff;
+				display:none;
+			}
+        </style>
+    </head>
+    <body>
+
+
+    	<!-- <canvas id = 'cv'></canvas> -->
+    	<div id = 'cv'>
+    		<button>重新开始</button>
+    	</div>
+    	<script src='js/base.js'></script>
+    	<script src='js/land.js'></script>
+    	<script src='js/sky.js'></script>
+    	<script src='js/pipe.js'></script>
+    	<script src='js/bird.js'></script>
+    	<script src='js/game.js'></script>
+    	<script>
+    	// var cv = document.querySelector('#cv');
+     //    cv.width = 800;
+     //    cv.height = 600;
+     //    cv.style.border = '1px solid red';
+    	// var ctx = cv.getContext("2d");
+        //匀加速运动
+        //位移：
+        //s = v * t + 1/2 * a * t * t;
+        //
+        //求瞬时速度
+        //v = v0 + a * t;
+        //
+        var game = new Fly.Game('cv');
+        game.gameStart();
+        // var imgArr = ['birds' , 'land' , 'pipe1' , 'pipe2' , 'sky'];
+        // var roleList = [];
+        // var isStart = true;
+
+        // Fly.loadImgs(imgArr, function( imgList ){
+        // 	//创建天空
+        // 	for(var i=0; i < 2;i++){
+        // 		var sky = new Fly.Sky({
+	       //  		ctx:ctx,
+	       //  		img:imgList["sky"],
+	       //  		x:imgList["sky"].width * i
+	       //  	});
+	       //  	roleList.push(sky);
+        // 	}
+        	
+        // 	//创建管道对象
+        // 	for(var i = 0; i < 6; i++) {
+        // 		var pipe = new Fly.Pipe({
+        // 			ctx:ctx,
+        // 			imgUp:imgList["pipe2"],
+        // 			imgDown:imgList["pipe1"],
+        // 			x:imgList["pipe1"].width*3 * i+300
+        // 		});
+        // 		roleList.push(pipe);
+        // 	}
+        // 	//创建陆地
+        // 	for(var i =0; i < 4;i++){
+        // 		var land = new Fly.Land({
+        // 			ctx:ctx,
+        // 			img:imgList["land"],
+        // 			x:imgList["land"].width * i,
+        // 			y:cv.height - imgList["land"].height
+        // 		});
+        // 		roleList.push(land);
+        // 	}
+        // 	//创建小鸟对象
+        // 	var bird = new Fly.Bird(imgList);
+        //     //上一帧的时间
+        //     var lastFrameTime = new Date;
+
+        // 		(function render(){
+        // 			//当前的时间
+        //             var curFrameTime = new Date;
+        //             //两帧的时间间隔
+        //             var delta = curFrameTime - lastFrameTime;
+        //             //需修改上一帧的时间，才能够保证每一次的间隔保持在 60HZ 左右
+        //             lastFrameTime = curFrameTime;
+
+        // 			ctx.save();
+        // 			ctx.beginPath();
+        // 			ctx.clearRect(0, 0, cv.width, cv.height);
+        			
+        // 			//绘制
+        // 			roleList.forEach(function(role){
+        // 				role.draw(delta);
+        // 			})
+        // 			//绘制小鸟对象
+        // 			bird.draw(delta);
+
+        // 			//检测碰撞
+        // 			if(bird.y < 0 || bird.y > cv.height - imgList["land"].height || ctx.isPointInPath(bird.x, bird.y)) {
+        // 				isStart = false;
+        // 			}
+
+        //             ctx.restore();
+        //             if(isStart){
+        //             	 window.requestAnimationFrame( render );
+        //             }
+                   
+        // 		})();
+
+        //     //给canvas绑定单击事件
+        //     cv.addEventListener('click', function(){
+        //         //修改小鸟速度为：负值，即可
+        //         bird.v = -0.3;
+        //     });
+
+        // });
+    	</script>
+    </body>
+</html>
